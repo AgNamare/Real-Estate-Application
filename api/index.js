@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGOURL).then(()=>{
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
