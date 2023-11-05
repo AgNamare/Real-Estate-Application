@@ -25,6 +25,7 @@ export default function SignIn() {
       dispatch(signInStart());
       const res = await fetch("http://localhost:5000/api/auth/sign-in", {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json"
         },
