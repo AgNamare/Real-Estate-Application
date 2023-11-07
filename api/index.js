@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
+import listingRouter from "./routes/listing.route.js";
 import authRouter from "./routes/auth.route.js";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -30,6 +31,9 @@ app.use(cors(corsOptions));
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/listing", listingRouter);
+
+
 
 app.listen(5000, function () {
   console.log('Server is running on port 5000!');
