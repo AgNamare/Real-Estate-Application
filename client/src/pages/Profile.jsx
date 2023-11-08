@@ -1,6 +1,7 @@
 import {useSelector} from "react-redux";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {deleteUserStart, deleteUserSuccess, deleteUserFailure, updateUserStart, updateUserSuccess, updateUserFailure, signOutUserStart } from "../redux/user/userSlice";
 
 export default function Profile() {
@@ -72,7 +73,7 @@ export default function Profile() {
   }
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-3 max-w-lg mx-auto flex-1">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
       <form className="flex flex-col" onSubmit={handleSubmit}>
         <img src={currentUser.avatar} alt="profile"  className="rounded-full h-24 w-24 object-cover cursor-pointer self-center"/>
@@ -80,6 +81,9 @@ export default function Profile() {
         <input onChange={handleChange}type="email"defaultValue={currentUser.email} placeholder="email" className="border p-3 rounded-lg" id="email" />
         <input onChange={handleChange}type="password" placeholder="password" className="border p-3 rounded-lg" id="password" />
         <button type="submit" className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">{loading?"loading...":"Update"}</button>
+        <Link className="bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-90" to={"/create-listing"}>
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete Account</span>
