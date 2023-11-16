@@ -60,7 +60,7 @@ export default function Profile() {
 
   const handleSignOut = async() =>{
     try {
-      dispatch(signOutUserStart);
+      dispatch(signOutUserStart());
       const res = await fetch('http://localhost:5000/api/auth/signout');
       const data = await res.json();
       if(data.success == false) {
