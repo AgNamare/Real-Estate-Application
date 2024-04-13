@@ -67,7 +67,7 @@ export default function Profile() {
         dispatch(deleteUserFailure(data.message));
         return;
       }
-      dispatch(deleteUserFailure(data.message));
+      dispatch(deleteUserSuccess(data));
     } catch (error) {
       next(error);
       dispatch(deleteUserFailure(error.message));

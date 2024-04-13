@@ -13,7 +13,7 @@ export default function ListingItem({ listing }) {
             <p className="w-full text-sm text-gray-600 truncate">{listing.address}</p>
           </div>
           <p className="text-sm text-gray-600 line-clamp-2">{listing.description}</p>
-          <p className="text-slate-500 mt-2 font-semibold">${listing.offer ? listing.discountPrice.toLocaleString('en-US') : listing.regularPrice.toLocaleString("en-US")}
+          <p className="text-slate-500 mt-2 font-semibold">Ksh {listing.offer ? listing.discountPrice.toLocaleString('en-US') : listing.regularPrice.toLocaleString("en-US")}
           {listing.type === "rent" && "/ month"}  
           </p>
           <div className="text-slate-700 flex gap-4">

@@ -56,12 +56,12 @@ export default function Home() {
             place with ease
           </h1>
         </div>
-        <div className="text-gray-400 text-xs sm:text-sm">
+        <div className="mx-auto max-w-6xl px-3 text-gray-400 text-xs sm:text-sm">
           Edge Estate is the best place to find your next perfect place to live.
           <br />
           We have a wide range of properties for you to choose from.
         </div>
-        <Link to={"/search"} className="text-sx sm:text-sm text-blue-800 font-bold hover:underline">
+        <Link to={"/search"} className="mx-auto width text-sx sm:text-sm text-blue-800 font-bold hover:underline">
           Lets get started
         </Link>
 
