@@ -27,27 +27,28 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(express.static(path.join(__dirname, '/client/dist')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
-})
-
 const corsOptions = {
   origin: "http://localhost:5173",
   credentials: true
 }
 app.use(cors(corsOptions));
 
-app.use("/api/user", userRouter);
-app.use("/api/auth", authRouter);
-app.use("/api/listing", listingRouter);
-
 
 
 app.listen(5000, function () {
   console.log('Server is running on port 5000!');
  });
+ 
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/listing", listingRouter);
+
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"))
+})
 
  app.use((err, req, res, next)=>{
   const statusCode = err.statusCode || 500;
