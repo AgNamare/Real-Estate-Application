@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 const corsOptions = {
-  origin: "*",
+  origin: 'https://edge-estate.onrender.com',
   credentials: true
 }
 app.use(cors(corsOptions));
