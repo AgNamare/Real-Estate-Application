@@ -52,7 +52,6 @@ export const google = async (req, res, next) => {
       res.cookie("access_token", token, {
         httpOnly: true,
         secure: false,
-        maxAge: 2*60*60*1000 // Set expiration time in milliseconds
       }).status(200).json(rest);
     }
   } catch (error) {
