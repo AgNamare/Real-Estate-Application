@@ -28,9 +28,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 const corsOptions = {
-  origin: 'https://edge-estate.onrender.com',
-  credentials: true
-}
+  origin: ['http://localhost:5173', 'http://localhost:3000'], 
+  credentials: 
+};
+
 app.use(cors(corsOptions));
 
 
