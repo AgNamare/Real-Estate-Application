@@ -23,7 +23,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("http://localhost:5000/api/auth/sign-in", {
+      const res = await fetch("https://edge-estate.onrender.com/api/auth/sign-in", {
         method: "POST",
         credentials: "include",
         headers: {

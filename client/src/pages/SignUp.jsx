@@ -22,7 +22,7 @@ export default function SignUp() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth", {
+      const res = await fetch("https://edge-estate.onrender.com/api/auth", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

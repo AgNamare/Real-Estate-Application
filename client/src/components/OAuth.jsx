@@ -14,7 +14,7 @@ export default function OAuth() {
 
       const result = await signInWithPopup(auth, provider);
 
-      const res = await fetch("http://localhost:5000/api/auth/google",{
+      const res = await fetch("https://edge-estate.onrender.com/api/auth/google",{
         method: "POST",
         credentials:"include",
         headers: {

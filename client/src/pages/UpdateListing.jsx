@@ -34,7 +34,7 @@ export default function CreateListing() {
   useEffect(()=> {
     const fetchListing = async () => {
       const listingId = params.listingId;
-      const res = await fetch(`http://localhost:5000/api/listing/get/${listingId}`);
+      const res = await fetch(`https://edge-estate.onrender.com/api/listing/get/${listingId}`);
       const data = await res.json();
       if(data.success === false) {
         setError(data.message);
@@ -127,7 +127,7 @@ export default function CreateListing() {
       if( formData.regularPrice < formData.discountPrice) return setError("Discounted price cannot be greater than regular price");
       setLoading(true);
       setError(false);
-      const res = await fetch(`http://localhost:5000/api/listing/update/${params.listingId}`, {
+      const res = await fetch(`https://edge-estate.onrender.com/api/listing/update/${params.listingId}`, {
         method: "POST",
         credentials: "include", 
         headers: {

@@ -10,7 +10,7 @@ export default function Contact({listing}) {
   useEffect(()=> {
     const fetchLandlord = async()=> {
       try {
-        const res = await fetch (`http://localhost:5000/api/user/${listing.userRef}`,{
+        const res = await fetch (`https://edge-estate.onrender.com/api/user/${listing.userRef}`,{
           method:"GET",
           credentials:"include"
         });

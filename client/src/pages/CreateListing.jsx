@@ -109,7 +109,7 @@ export default function CreateListing() {
       if( formData.regularPrice < formData.discountPrice) return setError("Discounted price cannot be greater than regular price");
       setLoading(true);
       setError(false);
-      const res = await fetch('http://localhost:5000/api/listing/create', {
+      const res = await fetch('https://edge-estate.onrender.com/api/listing/create', {
         method: "POST",
         credentials: "include", 
         headers: {
