@@ -32,7 +32,18 @@ const corsOptions = {
   credentials: true
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow_Origin",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow_Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+})
 
 
 
