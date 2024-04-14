@@ -15,19 +15,17 @@ export const signup = async(req, res, next)=>{
   };
 };
 
-export const signIn = async (req, res, next)=> {
-  const  {email, password} = req.body;
+export const signIn = async (req, res, next) => {
+  const { email, password } = req.body;
   try {
-    const validUser = await User.findOne({email});
-    //Error handler is a custom function created that creates errors given a code and error message
-    //The next middleware is used to handle errors
-    if(!validUser) return next(errorHandler(404, "Wrong Credentials!"));
+    const validUser = await User.findOne({ email });
+    if (!validUser) return next(errorHandler(404, "Wrong Credentials!"));
     const validPassword = bcrypt.compareSync(password, validUser.password);
-    if(!validPassword) return next(errorHandler(401, "Wrong Credentials!"));
-    //creating a token for authentication
-    const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET);
-    const {password:pass, ...userInfo} = validUser._doc;
-    res.cookie("access_token", token, {httpOnly: true, secure:false}).status(200).json(userInfo);
+    if (!validPassword) return next(errorHandler(401, "Wrong Credentials!"));
+    const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
+    const { password: pass, ...userInfo } = validUser._doc;
+    // Set the cookie with SameSite=None for cross-site usage
+    res.cookie("access_token", token, { httpOnly: true, secure: true, sameSite: 'none' }).status(200).json(userInfo);
   } catch (error) {
     next(error);
   }
